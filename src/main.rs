@@ -102,13 +102,11 @@ fn setup(
 fn movement_system(mut query: Query<&mut TnuaController, With<TnuaRapier3dSensorShape>>) {
     for mut controller in query.iter_mut() {
         let direction = Vec3::new(60.0, 0.0, 0.0);
+        info!("wqdqwd");
 
         controller.basis(TnuaBuiltinWalk {
             // Move in the direction the player entered, at a speed of 10.0:
             desired_velocity: direction * 10.0,
-
-            // Turn the character in the movement direction:
-            desired_forward: Dir3::new(direction).ok(),
 
             // Must be larger than the height of the entity's center from the bottom of its
             // collider, or else the character will not float and Tnua will not work properly:
